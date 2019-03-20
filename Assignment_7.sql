@@ -24,3 +24,41 @@ FROM
 	actor a;
 
 
+/*  2a. You need to find the ID number, first name, and last name of an actor, of whom you know only the first name, "Joe." 
+What is one query would you use to obtain this information? */
+
+SELECT
+	a.actor_id AS ID,
+    a.first_name AS FirstName,
+    a.last_name AS LastName
+FROM
+	actor a
+WHERE
+	a.first_name = 'Joe';
+
+
+-- 2b. Find all actors whose last name contain the letters GEN
+SELECT
+	a.actor_id AS ID,
+    a.first_name AS FirstName,
+    a.last_name AS LastName
+FROM
+	actor a
+WHERE
+	a.last_name LIKE '%GEN%';
+
+
+/* 2c. Find all actors whose last names contain the letters LI. This time, order the rows by last name 
+and first name, in that order */
+SELECT
+	a.actor_id AS ID,
+    a.first_name AS FirstName,
+    a.last_name AS LastName
+FROM
+	actor a
+WHERE
+	a.last_name LIKE '%LI%'
+ORDER BY 
+	a.last_name ASC,
+    a.first_name ASC;
+
