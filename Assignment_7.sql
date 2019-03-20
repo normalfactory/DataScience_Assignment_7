@@ -62,3 +62,16 @@ ORDER BY
 	a.last_name ASC,
     a.first_name ASC;
 
+
+/* 2d. Using IN, display the country_id and country columns of the following countries: 
+Afghanistan, Bangladesh, and China: */
+SELECT
+	c.country_id,
+    c.country
+FROM
+	country c
+WHERE
+	c.country IN ('Afghanistan', 'Bangladesh', 'China');
+
+
+
