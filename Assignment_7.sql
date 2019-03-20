@@ -38,6 +38,7 @@ WHERE
 
 
 -- 2b. Find all actors whose last name contain the letters GEN
+
 SELECT
 	a.actor_id AS ID,
     a.first_name AS FirstName,
@@ -50,6 +51,7 @@ WHERE
 
 /* 2c. Find all actors whose last names contain the letters LI. This time, order the rows by last name 
 and first name, in that order */
+
 SELECT
 	a.actor_id AS ID,
     a.first_name AS FirstName,
@@ -65,6 +67,7 @@ ORDER BY
 
 /* 2d. Using IN, display the country_id and country columns of the following countries: 
 Afghanistan, Bangladesh, and China: */
+
 SELECT
 	c.country_id,
     c.country
@@ -89,5 +92,31 @@ ALTER TABLE actor
 	DROP COLUMN Description;
 
 
+/* 4a. List the last names of actors, as well as how many actors have that last name. */
 
+SELECT
+	a.last_name AS LastName,
+    COUNT(a.last_name) As CountOfLastName
+FROM
+	actor a
+GROUP BY 
+	a.last_name;
+
+
+/* 4b. List last names of actors and the number of actors who have that last name, 
+but only for names that are shared by at least two actors */
+
+SELECT 
+	tq.LastName, 
+    tq.CountOfLastName 
+FROM
+	(SELECT
+		a.last_name AS LastName,
+		COUNT(a.last_name) As CountOfLastName
+	FROM
+		actor a
+	GROUP BY 
+		a.last_name) AS tq
+WHERE
+    tq.CountOfLastName >= 2;
 
