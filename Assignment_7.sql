@@ -82,8 +82,11 @@ ALTER TABLE actor
 	ADD COLUMN Description Blob;
 
 
+/* 3b. Very quickly you realize that entering descriptions for each actor is too much effort. 
+Delete the description column. */
 
-
+ALTER TABLE actor
+	DROP COLUMN Description;
 
 
 
