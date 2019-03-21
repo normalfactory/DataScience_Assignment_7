@@ -120,3 +120,13 @@ FROM
 WHERE
     tq.CountOfLastName >= 2;
 
+
+/* 4c. The actor HARPO WILLIAMS was accidentally entered in the actor table as GROUCHO WILLIAMS. 
+Write a query to fix the record. */
+
+
+
+
+
+
+
