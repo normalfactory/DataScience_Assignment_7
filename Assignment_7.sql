@@ -124,6 +124,13 @@ WHERE
 /* 4c. The actor HARPO WILLIAMS was accidentally entered in the actor table as GROUCHO WILLIAMS. 
 Write a query to fix the record. */
 
+UPDATE 
+	actor
+SET
+	first_name = 'HARPO'
+WHERE
+	(first_name = 'GROUCHO') AND (last_name = 'WILLIAMS');
+
 
 
 
