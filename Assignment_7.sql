@@ -162,6 +162,20 @@ CREATE TABLE `address` (
 ) ENGINE=InnoDB AUTO_INCREMENT=606 DEFAULT CHARSET=utf8;
 
 
+/* 6a. Use JOIN to display the first and last names, as well as the address, of each staff member. Use the tables staff and address */
+
+SELECT 
+	s.first_name AS FirstName,
+    s.last_name AS LastName,
+    a.address AS Address
+FROM 
+	staff s
+    INNER JOIN address a ON (s.address_id = a.address_id);
+
+
+
+
+
 
 
 
