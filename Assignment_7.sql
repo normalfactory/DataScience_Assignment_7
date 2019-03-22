@@ -212,4 +212,27 @@ WHERE
 	f.title = 'Hunchback Impossible';
 
 
+/* 6e. Using the tables payment and customer and the JOIN command, list the total paid by each customer. 
+List the customers alphabetically by last name */
+
+SELECT 
+	c.first_name AS FirstName,
+    c.last_name AS LastName,
+    SUM(p.amount) AS TotalAmountPaid
+FROM
+	customer c
+    INNER JOIN payment p ON (c.customer_id = p.customer_id)
+GROUP BY
+	c.customer_id
+ORDER BY 
+	c.last_name ASC;
+
+
+
+
+
+
+
+
+
 
