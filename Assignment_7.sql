@@ -317,9 +317,19 @@ GROUP BY
 	st.store_id
 ORDER BY
 	Revenue DESC;
-    
-    
+  
+  
+/* 7g. Write a query to display for each store its store ID, city, and country. */    
 
+SELECT 
+	s.store_id AS StoreID,
+	c.city As City,
+    cy.country As Country
+FROM 
+	store s
+    INNER JOIN address a ON (s.address_id = a.address_id)
+    INNER JOIN city c ON (a.city_id = c.city_id)
+	INNER JOIN country cy ON (c.country_id = cy.country_id);
 
 
 
