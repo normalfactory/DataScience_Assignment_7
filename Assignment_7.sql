@@ -286,4 +286,18 @@ WHERE
 	c.name = 'Family';
 
 
+/* 7e. Display the most frequently rented movies in descending order. */
+
+SELECT 
+	f.title,
+    COUNT(f.film_id) AS NumTimesRented
+FROM
+	film f
+    INNER JOIN inventory i ON (f.film_id = i.film_id)
+    INNER JOIN rental r ON (i.inventory_id = r.inventory_id)
+GROUP BY
+	f.title
+ORDER BY
+	NumTimesRented DESC;
+    
 
