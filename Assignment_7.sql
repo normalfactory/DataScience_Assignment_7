@@ -189,7 +189,17 @@ ORDER BY
 	MonthlyTotal DESC;
 
 
+/* List each film and the number of actors who are listed for that film. Use tables film_actor and film. Use inner join. */
 
+SELECT 
+	f.title AS Title,
+    COUNT(f.film_id) AS NumActors
+FROM 
+	film f
+    INNER JOIN film_actor fa ON (f.film_id = fa.film_id)
+GROUP BY
+	Title;
+    
 
 
 
