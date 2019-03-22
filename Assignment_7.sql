@@ -301,3 +301,31 @@ ORDER BY
 	NumTimesRented DESC;
     
 
+/* 7f. Write a query to display how much business, in dollars, each store brought in */
+
+SELECT
+	st.store_id AS Store_ID,
+    a.address AS Store_Address,
+	SUM(p.amount) AS Revenue
+
+FROM 
+	payment p
+    INNER JOIN staff s ON (p.staff_id = s.staff_id)
+    INNER JOIN store st ON (s.store_id = st.store_id)
+    INNER JOIN address a ON (st.address_id = a.address_id)
+GROUP BY 
+	st.store_id
+ORDER BY
+	Revenue DESC;
+    
+    
+
+
+
+
+
+
+
+
+
+
