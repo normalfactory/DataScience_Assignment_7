@@ -173,6 +173,20 @@ FROM
     INNER JOIN address a ON (s.address_id = a.address_id);
 
 
+/* 6b. Use JOIN to display the total amount rung up by each staff member in August of 2005. Use tables staff and payment. */
+
+SELECT
+	CONCAT(s.first_name, ' ', s.last_name) AS StaffName,
+	SUM(p.amount) AS MonthlyTotal
+FROM 
+	payment p
+	INNER JOIN staff s ON (p.staff_id = s.staff_id)
+WHERE 
+	p.payment_date BETWEEN '2005-08-01' AND '2005-08-31'
+GROUP BY 
+	StaffName
+ORDER BY
+	MonthlyTotal DESC;
 
 
 
