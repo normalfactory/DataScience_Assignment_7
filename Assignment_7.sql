@@ -257,9 +257,22 @@ ORDER BY
 	LastName ASC;
 
     
+/* 7c. You want to run an email marketing campaign in Canada, for which you will need the names 
+and email addresses of all Canadian customers. Use joins to retrieve this information. */
+
+SELECT 
+	c.first_name AS FirstName,
+    c.last_name AS LastName,
+    c.email
+FROM 
+	customer c
+    INNER JOIN address a ON (c.address_id = a.address_id)
+    INNER JOIN city cy ON (a.city_id = cy.city_id)
+    INNER JOIN country ct ON (cy.country_id = ct.country_id)
+WHERE
+	ct.country = 'Canada';
+
     
-
-
 
 
 
