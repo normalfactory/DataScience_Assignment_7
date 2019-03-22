@@ -228,6 +228,21 @@ ORDER BY
 	c.last_name ASC;
 
 
+/* 7a. The music of Queen and Kris Kristofferson have seen an unlikely resurgence. As an unintended consequence, 
+films starting with the letters K and Q have also soared in popularity. Use subqueries to display the titles of 
+movies starting with the letters K and Q whose language is English. */
+
+SELECT 
+	f.title As EnglishFilmsWithKandQ
+FROM
+	film f
+    INNER JOIN language l ON (f.language_id = l.language_id)
+WHERE
+	(f.title LIKE 'K%' OR f.title LIKE 'Q%') AND 
+    (l.name = 'English')
+
+
+
 
 
 
