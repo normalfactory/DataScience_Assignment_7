@@ -239,10 +239,25 @@ FROM
     INNER JOIN language l ON (f.language_id = l.language_id)
 WHERE
 	(f.title LIKE 'K%' OR f.title LIKE 'Q%') AND 
-    (l.name = 'English')
+    (l.name = 'English');
 
 
+/* 7b. Use subqueries to display all actors who appear in the film Alone Trip. */
 
+SELECT 
+	a.first_name AS FirstName,
+    a.last_name AS LastName
+FROM 
+	film f
+    INNER JOIN film_actor fa ON (f.film_id = fa.film_id)
+    INNER JOIN actor a ON (fa.actor_id = a.actor_id)
+WHERE
+	f.title = 'Alone Trip'
+ORDER BY
+	LastName ASC;
+
+    
+    
 
 
 
