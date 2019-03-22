@@ -189,7 +189,7 @@ ORDER BY
 	MonthlyTotal DESC;
 
 
-/* List each film and the number of actors who are listed for that film. Use tables film_actor and film. Use inner join. */
+/* 6c. List each film and the number of actors who are listed for that film. Use tables film_actor and film. Use inner join. */
 
 SELECT 
 	f.title AS Title,
@@ -201,6 +201,15 @@ GROUP BY
 	Title;
     
 
+/* 6d. How many copies of the film Hunchback Impossible exist in the inventory system? */
+
+SELECT 
+	COUNT(f.film_id) AS NumFilmsInInvetory
+FROM 
+	film f
+    INNER JOIN inventory i ON (f.film_id = i.film_id)
+WHERE
+	f.title = 'Hunchback Impossible';
 
 
 
