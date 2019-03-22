@@ -332,8 +332,23 @@ FROM
 	INNER JOIN country cy ON (c.country_id = cy.country_id);
 
 
+/* 7h. List the top five genres in gross revenue in descending order. (Hint: you may need 
+to use the following tables: category, film_category, inventory, payment, and rental.) */
 
-
+SELECT
+	c.name AS FilmCategory,
+    SUM(p.amount) AS Renvenue
+FROM
+	category c
+    INNER JOIN film_category fc ON (c.category_id = fc.category_id)
+    INNER JOIN inventory i ON (fc.film_id = i.film_id)
+    INNER JOIN rental r ON (i.inventory_id = r.inventory_id)
+    INNER JOIN payment p ON (r.rental_id = p.rental_id)
+GROUP BY
+	FilmCategory
+ORDER BY 
+	Renvenue DESC
+LIMIT 5;
 
 
 
