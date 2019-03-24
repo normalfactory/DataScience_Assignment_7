@@ -1,5 +1,5 @@
 /*
-SQL Assignment
+SQL Assignment using sakila Database in MySQL
 
 March 19, 2019
 Scott McEachern
