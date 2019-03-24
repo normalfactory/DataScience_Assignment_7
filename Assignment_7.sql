@@ -337,7 +337,7 @@ to use the following tables: category, film_category, inventory, payment, and re
 
 SELECT
 	c.name AS FilmCategory,
-    SUM(p.amount) AS Renvenue
+    SUM(p.amount) AS Revenue
 FROM
 	category c
     INNER JOIN film_category fc ON (c.category_id = fc.category_id)
@@ -347,8 +347,31 @@ FROM
 GROUP BY
 	FilmCategory
 ORDER BY 
-	Renvenue DESC
+	Revenue DESC
 LIMIT 5;
+
+
+/* 8a. In your new role as an executive, you would like to have an easy way of viewing the Top five genres 
+by gross revenue. Use the solution from the problem above to create a view. If you haven't solved 7h, 
+you can substitute another query to create a view. */
+
+CREATE VIEW 
+	TopFiveGenresByRevenue_View AS
+
+	SELECT
+		c.name AS FilmCategory,
+		SUM(p.amount) AS Revenue
+	FROM
+		category c
+		INNER JOIN film_category fc ON (c.category_id = fc.category_id)
+		INNER JOIN inventory i ON (fc.film_id = i.film_id)
+		INNER JOIN rental r ON (i.inventory_id = r.inventory_id)
+		INNER JOIN payment p ON (r.rental_id = p.rental_id)
+	GROUP BY
+		FilmCategory
+	ORDER BY 
+		Revenue DESC
+	LIMIT 5;
 
 
 
