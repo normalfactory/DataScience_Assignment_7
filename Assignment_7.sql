@@ -376,10 +376,11 @@ CREATE VIEW
 
 /* 8b. How would you display the view that you created in 8a? */
 
-SELECT * FROM TopFiveGenresByRevenue_View
+SELECT * FROM TopFiveGenresByRevenue_View;
 
 
+/* 8c. You find that you no longer need the view top_five_genres. Write a query to delete it. */
 
-
+DROP VIEW TopFiveGenresByRevenue_View;
 
 
