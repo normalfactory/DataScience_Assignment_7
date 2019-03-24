@@ -374,6 +374,12 @@ CREATE VIEW
 	LIMIT 5;
 
 
+/* 8b. How would you display the view that you created in 8a? */
+
+SELECT * FROM TopFiveGenresByRevenue_View
+
+
+
 
 
 
